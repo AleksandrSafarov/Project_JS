@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/AleksandrSafarov/Project_JS.Server.git"
   },
-  "homepage": "https://github.com/AleksandrSafarov/Project_JS#readme",
+  "homepage": "https://github.com/AstreyaJulia/mesto#readme",
   "scripts": {
     "build": "rimraf dist && webpack --mode production",
     "dev": "webpack serve",
