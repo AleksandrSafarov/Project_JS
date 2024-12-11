@@ -4,7 +4,7 @@
 export const apiSettings = {
   serverURL: 'https://mesto.nomoreparties.co/v1/frontend-st-cohort-201',
   headers: {
-    authorization: 'b6df4937-94bd-4357-9fce-c634eaf4b08e',
+    authorization: '4e30de94-eff5-42ef-be60-b4f32f8066a9',
     'Content-Type': 'application/json'
   }
 };
