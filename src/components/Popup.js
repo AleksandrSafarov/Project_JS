@@ -1,8 +1,7 @@
 /** Открывает и закрывает всплывашки*/
 export class Popup {
 
-  /** Конструктор всплывашки
-   * @param popupSelector - селектор всплывашки */
+  /** Конструктор всплывашки*/
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
     this._handleEsc = (evt) => {
@@ -22,8 +21,7 @@ export class Popup {
     document.removeEventListener('keydown', this._handleEsc);
   }
 
-  /** Закрывает всплывашку по нажатию ESC
-   * @private */
+  /** Закрывает всплывашку по нажатию ESC*/
   _handleEscClose(evt) {
     if (evt.key === 'Escape') {
       this.close();

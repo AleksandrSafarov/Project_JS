@@ -11,10 +11,7 @@ export class FormValidator {
   }
 
 
-  /** Включает ошибку валидации инпута
-   * @param input - валидируемый инпут
-   * @param message - сообщение об ошибке
-   * @private */
+  /** Включает ошибку валидации инпута*/
   _showInputError(input, message) {
 
     const error = this._formToValidate.querySelector(`#${input.id}-error`);
@@ -26,9 +23,7 @@ export class FormValidator {
   }
 
 
-  /** Выключает ошибку валидации инпута
-   * @param input - валидируемый инпут
-   * @private */
+  /** Выключает ошибку валидации инпута*/
   _hideInputError(input) {
     const error = this._formToValidate.querySelector(`#${input.id}-error`);
     error.textContent = "";
@@ -37,10 +32,7 @@ export class FormValidator {
   }
 
 
-  /** Валидация инпута
-   * Если инпут не прошел валидацию (?) показывает ошибку, иначе (:) убирает ошибку
-   * @param input - элемент формы
-   * @private */
+  /** Валидация инпута */
   _validateInput(input) {
     !input.validity.valid ? this._showInputError(input, input.validationMessage) : this._hideInputError(input);
   }
@@ -67,8 +59,7 @@ export class FormValidator {
   }
 
 
-  /** Создание прослушивателей
-   * @private */
+  /** Создание прослушивателей */
   _setInputEvtListeners() {
     this._formToValidate.addEventListener('submit', (evt) => {
       evt.preventDefault();

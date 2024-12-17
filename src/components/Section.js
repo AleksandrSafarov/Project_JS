@@ -1,24 +1,17 @@
 /** Отрисовщик элементов страницы */
 export class Section {
 
-  /** Конструктор элемента
-   * @param items - массив данных, добавляемых на страницу при инициализации класса
-   * @param renderer - ф-я создающая и орисовывающая данные
-   * @param containerSelector - селектор контейнера, в который добавляются созданные элементы
-   */
   constructor({renderer}, containerSelector) {
     this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
   }
 
-  /** Добавляет элемент в конец контейнера
-   * @param element - добавляемый DOM-элемент */
+  /** Добавляет элемент в конец контейнера */
   addItem(element){
     this._container.append(element);
   }
 
-  /** Добавляет созданный элемент в начало контейнера
-   * @param element - добавляемый DOM-элемент */
+  /** Добавляет созданный элемент в начало контейнера */
   addNewItem(element){
     this._container.prepend(element);
   }

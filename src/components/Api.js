@@ -1,5 +1,4 @@
 export class Api {
-  /** @param options - опции для работы с API (serverURL - url сервера, headers - заголовки в виде объекта) */
   constructor(options) {
     this._headers = options.headers;
     this._serverURL = options.serverURL;
@@ -14,8 +13,7 @@ export class Api {
 
   /** Работа с данными пользователя */
 
-  /** Получает инфо о пользователе с сервера
-   * @returns {Promise<Response>} - объект с данными пользователя / текст ошибки */
+  /** Получает инфо о пользователе с сервера */
   getUserInfo() {
     return fetch(`${this._serverURL}/users/me`, {
       headers: this._headers
@@ -23,9 +21,7 @@ export class Api {
       .then((res) => this._handlePromiseReturn(res));
   }
 
-  /** Отправляет инфо о пользователе на сервер
-   * @param data - отправляемые данные
-   * @returns {Promise<Response>} - объект с обновленными даннями / текст ошибки */
+  /** Отправляет инфо о пользователе на сервер */
   sendUserInfo(data) {
     return fetch(`${this._serverURL}/users/me`, {
       method: 'PATCH',
@@ -38,9 +34,7 @@ export class Api {
       .then((res) => this._handlePromiseReturn(res));
   }
 
-  /** Обновляет аватар пользователя на сервере
-   * @param avatar
-   * @returns {Promise<Response>} - объект с обновленными даннями / текст ошибки */
+  /** Обновляет аватар пользователя на сервере  */
   updateAvatar(avatar) {
     return fetch(`${this._serverURL}/users/me/avatar`, {
       method: 'PATCH',
@@ -54,8 +48,7 @@ export class Api {
 
   /** Работа с карточками */
 
-  /** Получает карточки с сервера
-   * @returns {Promise<Response>} - объект с карточками / текст ошибки */
+  /** Получает карточки с сервера */
   getCards() {
     return fetch(`${this._serverURL}/cards`, {
       headers: this._headers
@@ -63,9 +56,7 @@ export class Api {
       .then((res) => this._handlePromiseReturn(res));
   }
 
-  /** Отправляет данные о новой карточке на сервер
-   * @param data - объект с данными карточки
-   * @returns {Promise<Response>} - объект карточки / текст ошибки */
+  /** Отправляет данные о новой карточке на сервер */
   sendCard(data) {
     return fetch(`${this._serverURL}/cards`, {
       method: 'POST',
@@ -78,9 +69,7 @@ export class Api {
       .then((res) => this._handlePromiseReturn(res));
   }
 
-  /** Удаляет карточку с сервера
-   * @param cardID - ID карточки
-   * @returns {Promise<Response>} - объект карточки / текст ошибки */
+  /** Удаляет карточку с сервера */
   deleteCard(cardID) {
     return fetch(`${this._serverURL}/cards/${cardID}`, {
       method: 'DELETE',
@@ -88,9 +77,7 @@ export class Api {
     })
   }
 
-  /** Ставит лайк
-   * @param cardID - ID карточки
-   * @returns {Promise<Response>} - объект карточки / текст ошибки */
+  /** Ставит лайк */
   setLike(cardID) {
     return fetch(`${this._serverURL}/cards/${cardID}/likes`, {
       method: 'PUT',
@@ -99,9 +86,7 @@ export class Api {
       .then((res) => this._handlePromiseReturn(res));
   }
 
-  /** Удаляет лайк
-   * @param cardID - ID карточки
-   * @returns {Promise<Response>} - объект карточки / текст ошибки */
+  /** Удаляет лайк */
   deleteLike(cardID) {
     return fetch(`${this._serverURL}/cards/${cardID}/likes`, {
       method: 'DELETE',
