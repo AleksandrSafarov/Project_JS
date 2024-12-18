@@ -11,12 +11,10 @@ import {PopupWithConfirmation} from '../components/PopupWithConfirmation.js';
 import {UserInfo} from '../components/UserInfo.js';
 import {Api} from '../components/Api';
 
-/** Экземпляр API
- * @type {Api} */
+/** Экземпляр API */
 const api = new Api(apiSettings);
 
-/** ID залогиненного пользователя
- * @type {string} */
+/** ID залогиненного пользователя */
 let currentUser = '';
 
 
@@ -32,7 +30,7 @@ Promise.all([api.getUserInfo(), api.getCards()])
   .catch((err) => {
     console.log(err);
   });
-/** Создает новую секцию для галереи @type {Section} */
+/** Создает новую секцию для галереи */
 const sectionPhotoCards = new Section({
   renderer: (item) => {
     sectionPhotoCards.addItem(copyCard(item, currentUser))
@@ -41,36 +39,28 @@ const sectionPhotoCards = new Section({
 
 /** Профиль пользователя */
 
-/** Форма редактирования профиля
- * @type {Element} */
+/** Форма редактирования профиля */
 const formProfileEdit = document.querySelector(".popup_edit_profile " + validationSettings.formSelector);
 
-/** Форма редактирования аватара
- * @type {Element} */
+/** Форма редактирования аватара */
 const formAvatarEdit = document.querySelector(".popup_update-avatar " + validationSettings.formSelector);
 
-/** Экземпляр валидатора для формы редактирования профиля
- * @type {FormValidator} */
+/** Экземпляр валидатора для формы редактирования профиля */
 const profileEditValidator = new FormValidator(validationSettings, formProfileEdit);
 
-/** Экземпляр валидатора для формы редактирования аватара
- * @type {FormValidator} */
+/** Экземпляр валидатора для формы редактирования аватара */
 const avatarEditValidator = new FormValidator(validationSettings, formAvatarEdit);
 
 /** Всплывашка редактирования профиля */
-/** @type {HTMLElement} */
 const profileEditPopup = document.querySelector(".popup_edit_profile");
 
 /** Имя пользователя в всплывашке редактирования профиля */
-/** @type {HTMLInputElement} */
 const popupTitleInput = profileEditPopup.querySelector('#profile_name');
 
 /** Подпись пользователя в всплывашке редактирования профиля */
-/** @type {HTMLInputElement} */
 const popupAboutInput = profileEditPopup.querySelector('#profile_about');
 
-/** Кнопка редактирования профиля */
-/** @type {HTMLElement} */
+/** Кнопка редактирования профиля  */
 const profileEditButton = document.querySelector(".profile__button");
 
 /** Экземпляр профиля пользователя */
@@ -103,8 +93,7 @@ const profileForm = new PopupWithForm(
     }
   });
 
-/** Присваивает инпутам в форме редактирования профиля значения
- * @param info объект значений {title: title, about: about} */
+/** Присваивает инпутам в форме редактирования профиля значения  */
 const setProfileInputs = (info) => {
   popupTitleInput.value = info.title;
   popupAboutInput.value = info.about;
@@ -139,12 +128,10 @@ const avatarForm = new PopupWithForm(
 
 /** Карточки изображений */
 
-/** Форма добавления карточки
- * @type {Element} */
+/** Форма добавления карточки */
 const formNewPlace = document.querySelector(".popup_new-place " + validationSettings.formSelector);
 
-/** Экземпляр валидатора для формы добавления карточки
- * @type {FormValidator} */
+/** Экземпляр валидатора для формы добавления карточки */
 const newPlaceValidator = new FormValidator(validationSettings, formNewPlace);
 
 /** Экземпляр всплывашки просмотра изображения */
@@ -167,14 +154,10 @@ const popupImageDelete = new PopupWithConfirmation(
   }
 );
 
-/** Кнопка Добавить место */
-/** @type {HTMLButtonElement} */
+/** Кнопка Добавить место   */
 const buttonAddPlace = document.querySelector(".profile__add-button");
 
-/** Создает экземпляры карточек
- * @param item - элемент карточки {name, link}
- * @param currentUser
- * @returns {Node} - готовый узел карточки с прослушивателями */
+/** Создает экземпляры карточек */
 const copyCard = (item, currentUser) => {
   const card = new Card({
       item, currentUser,
